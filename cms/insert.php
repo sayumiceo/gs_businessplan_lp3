@@ -1,3 +1,5 @@
+<?php include '../key.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
      //ローカル
-     $pdo = new PDO('mysql:dbname=nuptialagree;charset=utf8mb4;host=localhost', 'root', '');
+    //  $pdo = new PDO('mysql:dbname=nuptialagree;charset=utf8mb4;host=localhost', 'root', '');
+
+    $pdo = new PDO(DSN, DB_USER, DB_PASS);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Check if a file was uploaded without errors
     if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {

@@ -1,3 +1,5 @@
+<?php include '../key.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -99,19 +101,12 @@ body {
 
     <div class="blog-container">
     <?php
-    // データベース設定
-    $dbHost = 'localhost';
-    $dbName = 'nuptialagree';
-    $dbUsername = 'root';
-    $dbPassword = '';
-
 
     try {
-        // PDOインスタンスを作成
-        $pdo = new PDO("mysql:host=$dbHost;dbname=$dbName;charset=utf8mb4", $dbUsername, $dbPassword);
         
-        // エラーモードを例外モードに設定
+        $pdo = new PDO(DSN, DB_USER, DB_PASS);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
 
         // CSS classes for keywords
         $keywordClass = 'keyword';

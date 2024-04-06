@@ -1,3 +1,5 @@
+<?php include '../key.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,8 +62,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // DB接続
     try {
         // ローカル
-        $pdo = new PDO('mysql:dbname=nuptialagree;charset=utf8mb4;host=localhost', 'root', '');
-    
+        // $pdo = new PDO('mysql:dbname=nuptialagree;charset=utf8mb4;host=localhost', 'root', '');
+
+        $pdo = new PDO(DSN, DB_USER, DB_PASS);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);    
+
         // データベースにデータを挿入
         $sql = "INSERT INTO contactus (name, email, message, agree, indate) VALUES (:name, :email, :message, :agree, NOW())";
         $stmt = $pdo->prepare($sql);
