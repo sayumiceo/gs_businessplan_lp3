@@ -1,4 +1,4 @@
-<?php include '../key.php'; ?>
+<?php include 'key.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">

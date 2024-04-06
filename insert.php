@@ -1,4 +1,4 @@
-<?php include '../key.php'; ?>
+<?php include 'key.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,8 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // DB接続
     try {
-        // ローカル
-        // $pdo = new PDO('mysql:dbname=nuptialagree;charset=utf8mb4;host=localhost', 'root', '');
+     
 
         $pdo = new PDO(DSN, DB_USER, DB_PASS);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);    
