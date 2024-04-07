@@ -127,7 +127,8 @@ body {
             // echo '<div class="blog-category">' . htmlspecialchars($row['category']) . '</div>';
 
  
-            echo '<div class="blog-content">' . mb_substr($row['content'], 0, 200) . ' ...</div>';
+            echo '<div class="blog-content">' . mb_substr(strip_tags($row['content']), 0, 185) . ' ...</div>';
+
 
             // Process keywords
             echo '<div class="' . $keywordContainerClass . '">';
