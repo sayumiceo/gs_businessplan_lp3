@@ -17,6 +17,7 @@
         tinymce.init({
             selector: '#content',
             branding: false,
+            height: 800,
             forced_root_block : "", 
             plugins: [
                 'advlist autolink lists link image charmap print preview anchor',
@@ -35,7 +36,6 @@
    <style>
 
         .label-title {
-        font-weight: bold;
         margin-bottom: 5px;
         display: block; /* ラベルをブロック要素にする */
         }
@@ -111,11 +111,15 @@
 
             <div class="form-group">
                 <label for="title">Blog Title</label>
-                <input type="text" id="title" name="title" required>
+                <div class="title-box">
+                    <input type="text" id="title" name="title" required>
+                </div>
             </div>
             <div class="form-group">
                 <label for="subtitle">Blog Subtitle</label>
-                <input type="text" id="subtitle" name="subtitle" required>
+                <div class="title-box">
+                    <input type="text" id="subtitle" name="subtitle" required>
+                </div>
             </div>
             <div class="form-group">
                 <label for="category">Blog Category</label>
