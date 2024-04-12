@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bindValue(':subtitle', $subtitle, PDO::PARAM_STR);
         $stmt->bindValue(':category', $category, PDO::PARAM_STR);
         $stmt->bindValue(':keywords', $keywords, PDO::PARAM_STR); 
-        $stmt->bindValue(':image_path', $filepath, PDO::PARAM_STR); // Bind the file path
+        $stmt->bindValue(':image_path', $filepath, PDO::PARAM_STR); 
         $stmt->bindValue(':content', $content, PDO::PARAM_STR);
        
         $stmt->execute();
