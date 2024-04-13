@@ -1,5 +1,45 @@
 <?php include '../key.php'; ?>
 
+<?php
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
+
+//変数初期化
+$author = $title = $subtitle = $category = $keywords = $image = $content = '';
+
+
+$id = $_GET['id'] ?? null;
+
+if ($id) {
+    try {
+        $pdo = new PDO(DSN, DB_USER, DB_PASS);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // Prepare and execute the query
+        $stmt = $pdo->prepare("SELECT * FROM blog WHERE id = ?");
+        $stmt->execute([$id]);
+
+        // Fetch the blog post
+        $blog_post = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Set form fields with the blog post data
+
+        $author = $blog_post['author'] ?? '';
+        $title = $blog_post['title'] ?? '';
+        $subtitle = $blog_post['subtitle'] ?? '';
+        $category = $blog_post['category'] ?? '';
+        $keywords = $blog_post['keywords'] ?? '';
+        $image = $blog_post['image'] ?? '';
+        $content = $blog_post['content'] ?? '';
+    } catch (PDOException $e) {
+        // Display error message if something goes wrong
+        echo "Database error: " . $e->getMessage();
+        exit;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,8 +131,6 @@
     </style>
 </head>
 
-
-
 <body>
 
     <div class="cms-container">
@@ -101,60 +139,87 @@
 
 
     <main class="content">
-        <form action="insert.php" method="post" enctype="multipart/form-data">
+        <form action="blog_update.php" method="post" enctype="multipart/form-data">
             <h1>Write a blog</h1>
 
             <div class="buttons-container">
                 <button type="submit" name="action" value="publish">投稿</button> 
                 <button type="submit" name="action" value="draft">下書き</button>
+                <button type="button" onclick="deletePost();">削除</button>
             </div>
+
+
+            <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
+
 
             <div class="form-group">
                 <label for="author">Author</label>
                 <div class="title-box">
-                    <input type="text" id="author" name="author" required>
+                <input type="text" id="author" name="author" value="<?php echo htmlspecialchars($author); ?>" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="title">Blog Title</label>
                 <div class="title-box">
-                    <input type="text" id="title" name="title" required>
+                <input type="text" id="title" name="title" value="<?php echo htmlspecialchars($title); ?>" required>
                 </div>
             </div>
+
             <div class="form-group">
                 <label for="subtitle">Blog Subtitle</label>
                 <div class="title-box">
-                    <input type="text" id="subtitle" name="subtitle" required>
+                <input type="text" id="title" name="subtitle" value="<?php echo htmlspecialchars($subtitle); ?>" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="category">Blog Category</label>
                 <select id="category" name="category" required>
-                    <option value="news">News</option>
-                    <option value="updates">Updates</option>
+                    <option value="news" <?php echo $category == 'news' ? 'selected' : ''; ?>>News</option>
+                    <option value="updates" <?php echo $category == 'updates' ? 'selected' : ''; ?>>Updates</option>
                 </select>
             </div>
             <div class="form-group">
-            <label class="label-title" for="keywordInput">Keywords</label>
-            <div id="keywords" class="tag-input-container">
-                <div id="keywordTags" class="tags"></div>
-                <input type="text" id="keywordInput" class="tag-input" placeholder="Enter to add keyword">
-                <input type="hidden" id="hiddenKeywords" name="keywords">
+                <label class="label-title" for="keywordInput">Keywords</label>
+                <div id="keywords" class="tag-input-container">
+                    <div id="keywordTags" class="tags">
+                        <?php
+                            // キーワードをカンマで分割
+                            $keywordsArray = explode(',', $blog_post['keywords']);
+                            foreach ($keywordsArray as $keyword) {
+                                // HTMLエンティティを避け、トリムして表示
+                                $keyword = trim(htmlspecialchars($keyword));
+                                if ($keyword) { // 空のキーワードは無視
+                                    echo "<span class='tag'>$keyword<span class='remove-tag'>&times;</span></span>";
+                                }
+                            }
+                        ?>
+                    </div>
+                    <input type="text" id="keywordInput" class="tag-input" placeholder="Enter to add keyword">
+                    <input type="hidden" id="hiddenKeywords" name="keywords" value="<?php echo htmlspecialchars($blog_post['keywords']); ?>">
                 </div>
             </div>
+
             <div class="form-group">
                 <label for="image">Blog Image</label>
+                <?php if (!empty($blog_post['image'])): ?>
+                    <img src="path/to/images/<?php echo htmlspecialchars($blog_post['image']); ?>" alt="Blog Image">
+                <?php endif; ?>
                 <input type="file" id="image" name="image">
             </div>
+
             <div class="form-group">
                 <label for="content">Content</label>
-                <textarea id="content" name="content"></textarea>
+                <textarea id="content" name="content" required><?php echo htmlspecialchars($content); ?></textarea>
+
             </div>
 
         </form>
     </main>
 
+
+
+    
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const keywordInput = document.getElementById('keywordInput');
@@ -211,7 +276,14 @@ function updateHiddenKeywords() {
 }
 
 
-
+function deletePost() {
+    if (confirm('Are you sure you want to do this blog?')) {
+        // Set the form action dynamically or send a delete request via Ajax
+        var form = document.querySelector('form');
+        form.action = 'blog_delete.php'; // change action to the deletion script
+        form.submit(); // submit the form
+    }
+}
 
     </script>
 </body>

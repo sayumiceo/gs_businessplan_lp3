@@ -14,22 +14,22 @@
 </head>
 
 <style>
-.confirmation-message {
-    padding: 20px;
-    margin: 140px auto;
-    max-width: 600px;
-    color: #333; 
-    text-align: center;
-    font-size: 1.1em; 
-}
-
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
     .confirmation-message {
-        margin: 20px 10px; 
-        padding: 20px 10px; 
+        padding: 20px;
+        margin: 140px auto;
+        max-width: 600px;
+        color: #333; 
+        text-align: center;
+        font-size: 1.1em; 
     }
-}
+
+    /* Responsive design for smaller screens */
+    @media (max-width: 768px) {
+        .confirmation-message {
+            margin: 20px 10px; 
+            padding: 20px 10px; 
+        }
+    }
 
 </style>
 

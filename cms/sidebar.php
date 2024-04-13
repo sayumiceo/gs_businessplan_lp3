@@ -7,7 +7,7 @@
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Users</a></li>
-                    <li><a href="blog.php">Blog</a></li>
+                    <li><a href="blog_top.php">Blog</a></li>
                 </ul>
             </nav>
         </aside>

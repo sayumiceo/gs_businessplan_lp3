@@ -1,5 +1,25 @@
 <?php include '../key.php'; ?>
 
+<style>
+    .confirmation-message {
+        padding: 20px;
+        margin: 140px auto;
+        max-width: 600px;
+        color: #333; 
+        text-align: center;
+        font-size: 1.1em; 
+    }
+
+    /* Responsive design for smaller screens */
+    @media (max-width: 768px) {
+        .confirmation-message {
+            margin: 20px 10px; 
+            padding: 20px 10px; 
+        }
+    }
+
+</style>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +28,7 @@
     <title>Blog form</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
 <?php include 'sidebar.php'; ?>
@@ -27,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         return $input;
     }
 
+    $author = sanitizeInput($_POST['author']);
     $title = sanitizeInput($_POST['title']);
     $subtitle = sanitizeInput($_POST['subtitle']);
     $category = sanitizeInput($_POST['category']);
@@ -66,9 +88,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
        // データベースにデータを挿入
-        $sql = "INSERT INTO blog (title, subtitle, category, keywords, image_path, content, post_date) VALUES (:title, :subtitle, :category, :keywords, :image_path, :content, NOW())";
+        $sql = "INSERT INTO blog (author, title, subtitle, category, keywords, image_path, content, post_date) VALUES (:author, :title, :subtitle, :category, :keywords, :image_path, :content, NOW())";
         $stmt = $pdo->prepare($sql);
 
+        $stmt->bindValue(':author', $author, PDO::PARAM_STR);
         $stmt->bindValue(':title', $title, PDO::PARAM_STR);
         $stmt->bindValue(':subtitle', $subtitle, PDO::PARAM_STR);
         $stmt->bindValue(':category', $category, PDO::PARAM_STR);
