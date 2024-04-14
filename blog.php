@@ -113,7 +113,7 @@ body {
         $keywordContainerClass = 'keyword-container';
 
         // データベースからブログデータを取得
-        $sql = "SELECT image_path, title, subtitle, category, keywords, content FROM blog ORDER BY post_date DESC";
+        $sql = "SELECT image_path, title, subtitle, category, keywords, content FROM blog WHERE status = 'published' ORDER BY post_date DESC";
         $stmt = $pdo->query($sql);  
 
         // 取得したデータをループ処理で表示

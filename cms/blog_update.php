@@ -10,7 +10,6 @@
         font-size: 1.1em; 
     }
 
-    /* Responsive design for smaller screens */
     @media (max-width: 768px) {
         .confirmation-message {
             margin: 20px 10px; 
@@ -35,43 +34,71 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Assuming you send the ID as a hidden input in the form
+
     $id = isset($_POST['id']) ? intval($_POST['id']) : null;
 
     if ($id) {
-        function sanitizeInput($input) {
-            return htmlspecialchars(stripslashes(trim($input)));
-        }
+        // function sanitizeInput($input) {
+        //     return htmlspecialchars(stripslashes(trim($input)));
+        // }
 
-        $author = sanitizeInput($_POST['author']);
-        $title = sanitizeInput($_POST['title']);
-        $subtitle = sanitizeInput($_POST['subtitle']);
-        $category = sanitizeInput($_POST['category']);
-        $keywords = sanitizeInput($_POST['keywords']);
-        $content = sanitizeInput($_POST['content']);
+        // $action = $_POST['action'];  // Get the action from form
+        // $status = ($action == 'publish') ? 'published' : 'draft';
+        // $writer = sanitizeInput($_POST['writer']);
+        // $title = sanitizeInput($_POST['title']);
+        // $subtitle = sanitizeInput($_POST['subtitle']);
+        // $category = sanitizeInput($_POST['category']);
+        // $keywords = sanitizeInput($_POST['keywords']);
+        // $content = sanitizeInput($_POST['content']);
+        // $filepath = '';
+
+        $action = $_POST['action'] ?? 'draft';  
+        $status = ($action == 'publish') ? 'published' : 'draft';
+        $writer = $_POST['writer'] ?? '';  
+        $title = $_POST['title'] ?? '';
+        $subtitle = $_POST['subtitle'] ?? '';
+        $category = $_POST['category'] ?? '';
+        $keywords = $_POST['keywords'] ?? '';
+        $content = $_POST['content'] ?? '';
         $filepath = '';
+        
 
         try {
             $pdo = new PDO(DSN, DB_USER, DB_PASS);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            // Handle file upload
+          // 画像ファイルが存在し、エラーがない場合に処理を実行
             if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+
                 $uploadDir = './uploads/';
+                // ユニークなファイル名を生成し、アップロードされる画像の名前を決定
                 $filename = uniqid() . "-" . basename($_FILES['image']['name']);
+                // 最終的なファイルのパスを設定
                 $filepath = $uploadDir . $filename;
 
-                if (!move_uploaded_file($_FILES['image']['tmp_name'], $filepath)) {
+                // 一時的なアップロード場所から指定のディレクトリにファイルを移動
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $filepath)) {
+                    // ファイルのアップロードが成功した場合
+                    // 成功したファイルパスは後のデータベース更新で使用される
+                } else {
+                    // ファイルのアップロードに失敗した場合、エラーメッセージを表示
                     echo '<div class="error-message">There was an error uploading the file.</div>';
-                    $filepath = '';  // Use existing image path if upload fails
+                    // 既存の画像パスをデータベースから取得して使用
+                    $filepath = getExistingImagePath($id, $pdo);
                 }
+            } else {
+                // 新しいファイルがアップロードされなかった場合、既存の画像パスをデータベースから取得
+                $filepath = getExistingImagePath($id, $pdo);
             }
 
+            
+
             // Update the existing blog post
-            $sql = "UPDATE blog SET author = :author, title = :title, subtitle = :subtitle, category = :category, keywords = :keywords, image_path = :image_path, content = :content WHERE id = :id";
+            $sql = "UPDATE blog SET status = :status, writer = :writer, title = :title, subtitle = :subtitle, category = :category, keywords = :keywords, image_path = :image_path, content = :content WHERE id = :id";
             $stmt = $pdo->prepare($sql);
 
-            $stmt->bindValue(':author', $author, PDO::PARAM_STR);
+            $stmt->bindValue(':status', $status, PDO::PARAM_STR);
+            $stmt->bindValue(':writer', $writer, PDO::PARAM_STR);
             $stmt->bindValue(':title', $title, PDO::PARAM_STR);
             $stmt->bindValue(':subtitle', $subtitle, PDO::PARAM_STR);
             $stmt->bindValue(':category', $category, PDO::PARAM_STR);
@@ -82,10 +109,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $stmt->execute();
 
-            echo '<div class="confirmation-message">Update successful!</div>';
-            // Optionally, redirect to a confirmation page or back to the edit form
-            // header("Location: blog_edit.php?id=" . $id);
-            // exit();
+            if ($stmt->rowCount() > 0) {
+                echo '<div class="confirmation-message">Update successful!</div>';
+            } else {
+                echo '<div class="error-message">No changes were made to the record.</div>';
+            }
 
         } catch (PDOException $e) {
             exit("Database error: " . $e->getMessage());
@@ -96,6 +124,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     echo '<div class="error-message">Please submit the form.</div>';
 }
+
+    // 既存の画像パスを取得する関数
+    function getExistingImagePath($id, $pdo) {
+        // 指定されたIDのブログポストから画像パスを取得するSQLクエリ
+        $sql = "SELECT image_path FROM blog WHERE id = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        // 結果が存在すれば画像パスを返し、存在しなければ空文字を返す
+        return $result ? $result['image_path'] : '';
+    }
+
 ?>
 
 </body>

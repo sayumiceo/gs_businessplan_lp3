@@ -41,20 +41,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // var_dump($_POST);
         // echo '</pre>';
 
-    function sanitizeInput($input) {
-        $input = trim($input);
-        $input = stripslashes($input);
-        // $input = htmlspecialchars($input);
-        return $input;
-    }
+    // function sanitizeInput($input) {
+    //     $input = trim($input);
+    //     $input = stripslashes($input);
+    //     // $input = htmlspecialchars($input);
+    //     return $input;
+    // }
 
-    $author = sanitizeInput($_POST['author']);
-    $title = sanitizeInput($_POST['title']);
-    $subtitle = sanitizeInput($_POST['subtitle']);
-    $category = sanitizeInput($_POST['category']);
-    $keywords = sanitizeInput($_POST['keywords']); 
-    $content = sanitizeInput($_POST['content']);
-    $filepath = ''; 
+    // $action = $_POST['action'];  
+    // $status = ($action == 'publish') ? 'published' : 'draft';
+    // $writer = sanitizeInput($_POST['writer']);
+    // $title = sanitizeInput($_POST['title']);
+    // $subtitle = sanitizeInput($_POST['subtitle']);
+    // $category = sanitizeInput($_POST['category']);
+    // $keywords = sanitizeInput($_POST['keywords']); 
+    // $content = sanitizeInput($_POST['content']);
+    // $filepath = ''; 
+
+    $action = $_POST['action'] ?? 'draft';  
+    $status = ($action == 'publish') ? 'published' : 'draft';
+    $writer = $_POST['writer'] ?? '';  
+    $title = $_POST['title'] ?? '';
+    $subtitle = $_POST['subtitle'] ?? '';
+    $category = $_POST['category'] ?? '';
+    $keywords = $_POST['keywords'] ?? '';
+    $content = $_POST['content'] ?? '';
+    $filepath = '';
 
 
     try {
@@ -88,10 +100,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
        // データベースにデータを挿入
-        $sql = "INSERT INTO blog (author, title, subtitle, category, keywords, image_path, content, post_date) VALUES (:author, :title, :subtitle, :category, :keywords, :image_path, :content, NOW())";
+        $sql = "INSERT INTO blog (status, writer, title, subtitle, category, keywords, image_path, content, post_date) VALUES (:status, :writer, :title, :subtitle, :category, :keywords, :image_path, :content, NOW())";
         $stmt = $pdo->prepare($sql);
 
-        $stmt->bindValue(':author', $author, PDO::PARAM_STR);
+        $stmt->bindValue(':status', $status, PDO::PARAM_STR);
+        $stmt->bindValue(':writer', $writer, PDO::PARAM_STR);
         $stmt->bindValue(':title', $title, PDO::PARAM_STR);
         $stmt->bindValue(':subtitle', $subtitle, PDO::PARAM_STR);
         $stmt->bindValue(':category', $category, PDO::PARAM_STR);

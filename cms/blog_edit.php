@@ -6,7 +6,7 @@
 // error_reporting(E_ALL);
 
 //変数初期化
-$author = $title = $subtitle = $category = $keywords = $image = $content = '';
+$writer = $title = $subtitle = $category = $keywords = $image = $content = '';
 
 
 $id = $_GET['id'] ?? null;
@@ -25,7 +25,7 @@ if ($id) {
 
         // Set form fields with the blog post data
 
-        $author = $blog_post['author'] ?? '';
+        $writer = $blog_post['writer'] ?? '';
         $title = $blog_post['title'] ?? '';
         $subtitle = $blog_post['subtitle'] ?? '';
         $category = $blog_post['category'] ?? '';
@@ -153,9 +153,9 @@ if ($id) {
 
 
             <div class="form-group">
-                <label for="author">Author</label>
+                <label for="writer">writer</label>
                 <div class="title-box">
-                <input type="text" id="author" name="author" value="<?php echo htmlspecialchars($author); ?>" required>
+                <input type="text" id="writer" name="writer" value="<?php echo htmlspecialchars($writer); ?>" required>
                 </div>
             </div>
 
@@ -169,7 +169,7 @@ if ($id) {
             <div class="form-group">
                 <label for="subtitle">Blog Subtitle</label>
                 <div class="title-box">
-                <input type="text" id="title" name="subtitle" value="<?php echo htmlspecialchars($subtitle); ?>" required>
+                <input type="text" id="subtitle" name="subtitle" value="<?php echo htmlspecialchars($subtitle); ?>" required>
                 </div>
             </div>
             <div class="form-group">

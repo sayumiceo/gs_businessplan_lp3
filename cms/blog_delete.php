@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->execute([$id]);
 
             if ($stmt->rowCount()) {
-                echo "<script>alert('The blog post has been successfully deleted.'); window.location.href='blog_top.php';</script>";
+                echo "<script>alert('The blog post has been successfully deleted.'); window.location.href='blog.php';</script>";
             } else {
                 echo "<script>alert('Error: The blog post could not be found.'); window.history.back();</script>";
             }
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 } else {
     // Redirect if this script is accessed via a non-POST method
-    header("Location: blog_top.php");
+    header("Location: blog.php");
     exit;
 }
 ?>
