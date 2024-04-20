@@ -32,7 +32,7 @@ if ($val && password_verify($password, $val['lpw'])) {
     $_SESSION['name'] = $val['name'];
 
     // 正しいリダイレクトを使用
-    header("Location: blog.php");
+    header("Location: dashboard.php");
 } else {
     // ログイン失敗時のリダイレクト
     header("Location: login.php");
