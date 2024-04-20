@@ -25,7 +25,7 @@
           <ul>
               <li><a href="#">About Us</a></li>
               <li><a href="contactus.php">Contact Us</a></li>
-              <li><a href="#">Blog</a></li>
+              <li><a href="blog.php">Blog</a></li>
               <li><a href="#">Press</a></li>
               <li><a href="#">Affiliates</a></li>
           </ul>

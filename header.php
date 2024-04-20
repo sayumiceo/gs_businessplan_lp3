@@ -11,7 +11,7 @@
             <li><a href="#">About Us</a></li>
             <li><a href="#">How it Works</a></li>
             <li><a href="#">Our Partners</a></li>
-            <li><a href="blog_new.php">Blog</a></li>
+            <li><a href="blog.php">Blog</a></li>
             <li><a href="#">Community</a></li>
             <li><a href="contactus.php">Contact Us</a></li>
         </ul>

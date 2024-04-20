@@ -123,7 +123,7 @@ body {
                 echo '<div class="blog-image"><img src="cms/' . htmlspecialchars($row['image_path']) . '" alt="Blog Image"></div>';
             }        
             echo '<div class="blog-title">' . htmlspecialchars($row['title']) . '</div>';
-            echo '<div class="blog-subtitle">' . htmlspecialchars($row['subtitle']) . '</div>';
+            // echo '<div class="blog-subtitle">' . htmlspecialchars($row['subtitle']) . '</div>';
             // echo '<div class="blog-category">' . htmlspecialchars($row['category']) . '</div>';
 
  
