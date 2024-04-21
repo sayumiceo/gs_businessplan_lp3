@@ -6,7 +6,7 @@
 
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="dashboard.php">Home</a></li>
                     <li><a href="#">Users</a></li>
                     <li><a href="blog.php">Blog</a></li>
                     <li><a href="logout.php">Log out</a></li>
