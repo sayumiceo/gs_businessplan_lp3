@@ -2,7 +2,7 @@
 //$_SESSION使うよ！
 session_start();
 
-include '../key.php';
+include '../inc/config.php';
 // sschk();
 
 

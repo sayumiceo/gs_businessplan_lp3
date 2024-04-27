@@ -1,4 +1,4 @@
-<?php include '../key.php'; ?>
+<?php include '../inc/config.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +17,7 @@
         tinymce.init({
             selector: '#content',
             branding: false,
-            height: 800,
+            height: 500,
             forced_root_block : "", 
             plugins: [
                 'advlist autolink lists link image charmap print preview anchor',
@@ -105,9 +105,18 @@
             <h1>Write a blog</h1>
 
             <div class="buttons-container">
-                <button type="submit" name="action" value="publish">投稿</button> 
-                <button type="submit" name="action" value="draft">下書き</button>
+                <button type="submit" name="action" value="publish">Publish</button> 
+                <button type="submit" name="action" value="draft">Draft</button>
             </div>
+
+            <div class="form-group">
+                <label for="lang">Language</label>
+                <select id="lang" name="lang" required>
+                    <option value="ja">日本語</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+
 
             <div class="form-group">
                 <label for="writer">writer</label>
@@ -132,7 +141,7 @@
                 <label for="category">Blog Category</label>
                 <select id="category" name="category" required>
                     <option value="news">News</option>
-                    <option value="news">Blog</option>
+                    <option value="blog">Blog</option>
                     <option value="updates">Updates</option>
                 </select>
             </div>

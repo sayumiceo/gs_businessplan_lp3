@@ -3,7 +3,7 @@
 //0. SESSION開始！！
 session_start();
 
-include '../key.php'; 
+include '../inc/config.php';
 
 sschk();
 

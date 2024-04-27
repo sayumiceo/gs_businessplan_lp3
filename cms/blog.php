@@ -1,4 +1,4 @@
-<?php include '../key.php'; ?>
+<?php include '../inc/config.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">

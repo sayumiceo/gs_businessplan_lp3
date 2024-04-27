@@ -1,4 +1,4 @@
-<?php include '../key.php'; ?>
+<?php include '../inc/config.php'; ?>
 
 <style>
     .confirmation-message {
@@ -54,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $action = $_POST['action'] ?? 'draft';  
         $status = ($action == 'publish') ? 'published' : 'draft';
+        $lang = $_POST['lang'] ?? '';  
         $writer = $_POST['writer'] ?? '';  
         $title = $_POST['title'] ?? '';
         $subtitle = $_POST['subtitle'] ?? '';
@@ -94,10 +95,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
 
             // Update the existing blog post
-            $sql = "UPDATE blog SET status = :status, writer = :writer, title = :title, subtitle = :subtitle, category = :category, keywords = :keywords, image_path = :image_path, content = :content WHERE id = :id";
+            $sql = "UPDATE blog SET status = :status, lang = :lang, writer = :writer, title = :title, subtitle = :subtitle, category = :category, keywords = :keywords, image_path = :image_path, content = :content WHERE id = :id";
             $stmt = $pdo->prepare($sql);
 
             $stmt->bindValue(':status', $status, PDO::PARAM_STR);
+            $stmt->bindValue(':lang', $lang, PDO::PARAM_STR);
             $stmt->bindValue(':writer', $writer, PDO::PARAM_STR);
             $stmt->bindValue(':title', $title, PDO::PARAM_STR);
             $stmt->bindValue(':subtitle', $subtitle, PDO::PARAM_STR);

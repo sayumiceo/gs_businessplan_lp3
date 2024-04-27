@@ -1,7 +1,7 @@
 
 <aside class="sidebar">
         <div class="logo">
-        <img src="../img/NuptialAgree_sample03.png" alt="NuptialAgree Logo" width="200px">
+        <img src="../lp/img/NuptialAgree_sample03.png" alt="NuptialAgree Logo" width="200px">
         </div>
 
             <nav>

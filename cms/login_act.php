@@ -7,7 +7,8 @@ $userid = $_POST['lid'] ?? '';
 $password = $_POST['lpw'] ?? '';
 
 // データベース接続
-include '../key.php';
+include '../inc/config.php';
+
 $pdo = new PDO(DSN, DB_USER, DB_PASS);
 
 // ユーザー認証クエリ
@@ -15,7 +16,7 @@ $stmt = $pdo->prepare("SELECT * FROM cms_users WHERE lid = :lid");
 $stmt->bindValue(':lid', $userid, PDO::PARAM_STR);
 $status = $stmt->execute();
 
-// SQL実行時にエラーがある場合STOP
+// SQL実行時にエラーがある場合は処理を中断
 if ($status==false) {
     sql_error($stmt);
 }
@@ -31,8 +32,14 @@ if ($val && password_verify($password, $val['lpw'])) {
     $_SESSION["kanri_flg"] = $val['kanri_flg'];
     $_SESSION['name'] = $val['name'];
 
-    // 正しいリダイレクトを使用
-    header("Location: dashboard.php");
+    // 管理者フラグに応じてリダイレクト先を変更
+    if ($_SESSION["kanri_flg"] == 0) {
+        // スタッフユーザーの場合はblog.phpにリダイレクト
+        header("Location: blog.php");
+    } else {
+        // 管理者ユーザーの場合はdashboard.phpにリダイレクト
+        header("Location: dashboard.php");
+    }
 } else {
     // ログイン失敗時のリダイレクト
     header("Location: login.php");
@@ -40,3 +47,4 @@ if ($val && password_verify($password, $val['lpw'])) {
 
 exit();
 ?>
+

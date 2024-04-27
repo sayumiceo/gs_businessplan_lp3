@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include '../key.php';
+include '../inc/config.php';
 // sschk();
 ?>
 
@@ -22,9 +22,6 @@ include '../key.php';
 <main class="content">
 
     <h1>Hi, <?php echo htmlspecialchars($_SESSION["name"]); ?>👋</h1>
-
-
-
 
 <!-- Main[Start] -->
 <form method="post" action="user_insert.php">

@@ -1,4 +1,4 @@
-<?php include '../key.php'; ?>
+<?php include '../inc/config.php'; ?>
 
 <?php
 // ini_set('display_errors', 1);
@@ -6,7 +6,7 @@
 // error_reporting(E_ALL);
 
 //変数初期化
-$writer = $title = $subtitle = $category = $keywords = $image = $content = '';
+$lang = $writer = $title = $subtitle = $category = $keywords = $image = $content = '';
 
 
 $id = $_GET['id'] ?? null;
@@ -25,6 +25,7 @@ if ($id) {
 
         // Set form fields with the blog post data
 
+        $lang = $blog_post['lang'] ?? '';
         $writer = $blog_post['writer'] ?? '';
         $title = $blog_post['title'] ?? '';
         $subtitle = $blog_post['subtitle'] ?? '';
@@ -143,14 +144,21 @@ if ($id) {
             <h1>Write a blog</h1>
 
             <div class="buttons-container">
-                <button type="submit" name="action" value="publish">投稿</button> 
-                <button type="submit" name="action" value="draft">下書き</button>
-                <button type="button" onclick="deletePost();">削除</button>
+                <button type="submit" name="action" value="publish">Publish</button> 
+                <button type="submit" name="action" value="draft">Draft</button>
+                <button type="button" onclick="deletePost();">Delete</button>
             </div>
 
 
             <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
 
+            <div class="form-group">
+                <label for="lang">Language</label>
+                <select id="lang" name="lang">
+                    <option value="ja" <?php echo $category == '日本語' ? 'selected' : ''; ?>>日本語</option>
+                    <option value="en" <?php echo $category == 'English' ? 'selected' : ''; ?>>English</option>
+                </select>
+            </div>
 
             <div class="form-group">
                 <label for="writer">writer</label>
@@ -176,9 +184,11 @@ if ($id) {
                 <label for="category">Blog Category</label>
                 <select id="category" name="category" required>
                     <option value="news" <?php echo $category == 'news' ? 'selected' : ''; ?>>News</option>
+                    <option value="blog" <?php echo $category == 'blog' ? 'selected' : ''; ?>>Blog</option>
                     <option value="updates" <?php echo $category == 'updates' ? 'selected' : ''; ?>>Updates</option>
                 </select>
             </div>
+
             <div class="form-group">
                 <label class="label-title" for="keywordInput">Keywords</label>
                 <div id="keywords" class="tag-input-container">
