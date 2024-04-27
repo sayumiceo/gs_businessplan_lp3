@@ -13,19 +13,19 @@ if (strpos($currentPath, '/ja/') !== false) {
 <div id="header">
     <nav class="nav-bar">
         <div>
-            <a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/index.php' : '/Nuptial/lp/index.php' ?>">
+            <a href="<?= ($lang === 'ja') ? '../ja/index.php' : '../index.php' ?>">
                 <img src="/Nuptial/lp/img/NuptialAgree_sample02.png" alt="Company Logo" />
         </a>
             </a>
         </div>
 
         <ul>
-            <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/about.php' : 'about.php' ?>"><?= ($lang === 'ja') ? '私たちについて' : 'About Us' ?></a></li>
-            <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/how-it-works.php' : 'how-it-works.php' ?>"><?= ($lang === 'ja') ? '使い方' : 'How it Works' ?></a></li>
-            <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/partners.php' : 'partners.php' ?>"><?= ($lang === 'ja') ? 'パートナー' : 'Our Partners' ?></a></li>
-            <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/blog.php' : 'blog.php' ?>"><?= ($lang === 'ja') ? 'ブログ' : 'Blog' ?></a></li>
-            <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/community.php' : 'community.php' ?>"><?= ($lang === 'ja') ? 'コミュニティ' : 'Community' ?></a></li>
-            <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/contactus.php' : 'contactus.php' ?>"><?= ($lang === 'ja') ? 'お問い合わせ' : 'Contact Us' ?></a></li>
+            <li><a href="<?= ($lang === 'ja') ? '../ja/about.php' : 'about.php' ?>"><?= ($lang === 'ja') ? '私たちについて' : 'About Us' ?></a></li>
+            <li><a href="<?= ($lang === 'ja') ? '../ja/how-it-works.php' : 'how-it-works.php' ?>"><?= ($lang === 'ja') ? '使い方' : 'How it Works' ?></a></li>
+            <li><a href="<?= ($lang === 'ja') ? '../ja/partners.php' : 'partners.php' ?>"><?= ($lang === 'ja') ? 'パートナー' : 'Our Partners' ?></a></li>
+            <li><a href="<?= ($lang === 'ja') ? '../ja/blog.php' : 'blog.php' ?>"><?= ($lang === 'ja') ? 'ブログ' : 'Blog' ?></a></li>
+            <li><a href="<?= ($lang === 'ja') ? '../ja/community.php' : 'community.php' ?>"><?= ($lang === 'ja') ? 'コミュニティ' : 'Community' ?></a></li>
+            <li><a href="<?= ($lang === 'ja') ? '../ja/contactus.php' : 'contactus.php' ?>"><?= ($lang === 'ja') ? 'お問い合わせ' : 'Contact Us' ?></a></li>
         </ul>
         <ul>
             <li><a href="login.php"><?= ($lang === 'ja') ? 'ログイン' : 'Log In' ?></a></li>

@@ -5,4 +5,4 @@ cms/.DS_Store
 headerfooter_old.php
 .gitignore
 /inc/config.php
-LP/.htaccess
+lp/.htaccess
