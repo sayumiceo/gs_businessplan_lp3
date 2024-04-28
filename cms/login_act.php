@@ -17,9 +17,9 @@ $stmt->bindValue(':lid', $userid, PDO::PARAM_STR);
 $status = $stmt->execute();
 
 // SQL実行時にエラーがある場合は処理を中断
-if ($status==false) {
+if ($status == false) {
     sql_error($stmt);
-}
+} 
 
 $val = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -32,14 +32,8 @@ if ($val && password_verify($password, $val['lpw'])) {
     $_SESSION["kanri_flg"] = $val['kanri_flg'];
     $_SESSION['name'] = $val['name'];
 
-    // 管理者フラグに応じてリダイレクト先を変更
-    if ($_SESSION["kanri_flg"] == 0) {
-        // スタッフユーザーの場合はblog.phpにリダイレクト
-        header("Location: blog.php");
-    } else {
-        // 管理者ユーザーの場合はdashboard.phpにリダイレクト
-        header("Location: dashboard.php");
-    }
+    // どちらのユーザーでもdashboard.phpにリダイレクト
+    header("Location: dashboard.php");
 } else {
     // ログイン失敗時のリダイレクト
     header("Location: login.php");
