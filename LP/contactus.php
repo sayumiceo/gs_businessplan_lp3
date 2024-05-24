@@ -78,7 +78,7 @@
 <?php include 'template/header.php'; ?>
 
     <div class="contact-section">
-        <h2>CONTACT US</h2>
+        <h1>CONTACT US</h1>
         <p>All messages will be reviewed. Due to the amount of messages we receive, we may not be able to send a reply to every inquiry, or there will be a considerable delay in response. 
             <br>We appreciate your understanding and patience with us.</p>
         <form action="insert.php" method="post">

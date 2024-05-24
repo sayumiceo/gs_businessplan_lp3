@@ -32,7 +32,7 @@ if (strpos($currentPath, '/ja/') !== false) {
     <section class="footer-column">
       <h4><?= ($lang === 'ja') ? '会社情報' : 'Our COMPANY' ?></h4>
       <ul>
-          <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/about.php' : 'about.php' ?>"><?= ($lang === 'ja') ? '私たちについて' : 'About Us' ?></a></li>
+          <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/about-us.php' : 'about-us.php' ?>"><?= ($lang === 'ja') ? '私たちについて' : 'About Us' ?></a></li>
           <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/contactus.php' : 'contactus.php' ?>"><?= ($lang === 'ja') ? 'お問い合わせ' : 'Contact Us' ?></a></li>
           <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/blog.php' : 'blog.php' ?>"><?= ($lang === 'ja') ? 'ブログ' : 'Blog' ?></a></li>
           <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/press.php' : 'press.php' ?>"><?= ($lang === 'ja') ? 'プレス' : 'Press' ?></a></li>

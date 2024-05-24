@@ -13,14 +13,14 @@ if (strpos($currentPath, '/ja/') !== false) {
 <div id="header">
     <nav class="nav-bar">
         <div>
-            <a href="<?= ($lang === 'ja') ? '../ja/index.php' : '../index.php' ?>">
+            <a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/index.php' : '/Nuptial/lp/index.php' ?>">
                 <img src="/Nuptial/lp/img/NuptialAgree_sample02.png" alt="Company Logo" />
         </a>
             </a>
         </div>
 
         <ul>
-            <li><a href="<?= ($lang === 'ja') ? '../ja/about.php' : 'about.php' ?>"><?= ($lang === 'ja') ? '私たちについて' : 'About Us' ?></a></li>
+            <li><a href="<?= ($lang === 'ja') ? '../ja/about-us.php' : 'about-us.php' ?>"><?= ($lang === 'ja') ? '私たちについて' : 'About Us' ?></a></li>
             <li><a href="<?= ($lang === 'ja') ? '../ja/how-it-works.php' : 'how-it-works.php' ?>"><?= ($lang === 'ja') ? '使い方' : 'How it Works' ?></a></li>
             <li><a href="<?= ($lang === 'ja') ? '../ja/partners.php' : 'partners.php' ?>"><?= ($lang === 'ja') ? 'パートナー' : 'Our Partners' ?></a></li>
             <li><a href="<?= ($lang === 'ja') ? '../ja/blog.php' : 'blog.php' ?>"><?= ($lang === 'ja') ? 'ブログ' : 'Blog' ?></a></li>
