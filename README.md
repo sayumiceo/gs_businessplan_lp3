@@ -10,7 +10,8 @@
 
 ## ③DEMO
 （任意）デプロイしている場合はURLを記入
-
+https://nuptialagree.sakura.ne.jp/Nuptial/lp/index.php
+https://nuptialagree.sakura.ne.jp/Nuptial/cms/
 
 ## ④工夫した点・こだわった点
 - 多言語対応について勉強し、SEOやUX、およびローカライズを考えて設計してみました。言語ごとのデザインと、ユーザーがどのページにいても選択した言語バージョンに現在のページが直接切り替わるようにしました。
