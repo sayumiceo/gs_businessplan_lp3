@@ -13,36 +13,36 @@ if (strpos($currentPath, '/ja/') !== false) {
 <footer class="lp-footer">
   <div class="footer-top">
     <div class="footer-logo">
-        <a href="<?= $lang === 'ja' ? '/Nuptial/lp/ja/index.php' : '/Nuptial/lp/index.php' ?>">
-            <img src="/Nuptial/lp/img/NuptialAgree_sample03.png" alt="Company Logo" />
+        <a href="<?= $lang === 'ja' ? '/nuptial/lp/ja/index.php' : '/nuptial/lp/index.php' ?>">
+            <img src="/nuptial/lp/img/NuptialAgree_sample03.png" alt="Company Logo" />
         </a>
     </div>
 
     <section class="footer-column">
       <h4><?= ($lang === 'ja') ? 'サービス' : 'Service' ?></h4>
       <ul>
-          <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/how-it-works.php' : 'how-it-works.php' ?>"><?= ($lang === 'ja') ? '使い方' : 'How it Works' ?></a></li>
-          <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/partners.php' : 'partners.php' ?>"><?= ($lang === 'ja') ? 'パートナー' : 'Our Partners' ?></a></li>
-          <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/prices.php' : 'prices.php' ?>"><?= ($lang === 'ja') ? '料金' : 'Prices' ?></a></li>
-          <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/community.php' : 'community.php' ?>"><?= ($lang === 'ja') ? 'コミュニティ' : 'Community' ?></a></li>
-          <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/help.php' : 'help.php' ?>"><?= ($lang === 'ja') ? 'ヘルプセンター' : 'Help Center' ?></a></li>
+          <li><a href="<?= ($lang === 'ja') ? '/nuptial/lp/ja/how-it-works.php' : 'how-it-works.php' ?>"><?= ($lang === 'ja') ? '使い方' : 'How it Works' ?></a></li>
+          <li><a href="<?= ($lang === 'ja') ? '/nuptial/lp/ja/partners.php' : 'partners.php' ?>"><?= ($lang === 'ja') ? 'パートナー' : 'Our Partners' ?></a></li>
+          <li><a href="<?= ($lang === 'ja') ? '/nuptial/lp/ja/prices.php' : 'prices.php' ?>"><?= ($lang === 'ja') ? '料金' : 'Prices' ?></a></li>
+          <li><a href="<?= ($lang === 'ja') ? '/nuptial/lp/ja/community.php' : 'community.php' ?>"><?= ($lang === 'ja') ? 'コミュニティ' : 'Community' ?></a></li>
+          <li><a href="<?= ($lang === 'ja') ? '/nuptial/lp/ja/help.php' : 'help.php' ?>"><?= ($lang === 'ja') ? 'ヘルプセンター' : 'Help Center' ?></a></li>
       </ul>
     </section>
 
     <section class="footer-column">
       <h4><?= ($lang === 'ja') ? '会社情報' : 'Our COMPANY' ?></h4>
       <ul>
-          <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/about-us.php' : 'about-us.php' ?>"><?= ($lang === 'ja') ? '私たちについて' : 'About Us' ?></a></li>
-          <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/contactus.php' : 'contactus.php' ?>"><?= ($lang === 'ja') ? 'お問い合わせ' : 'Contact Us' ?></a></li>
-          <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/blog.php' : 'blog.php' ?>"><?= ($lang === 'ja') ? 'ブログ' : 'Blog' ?></a></li>
-          <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/press.php' : 'press.php' ?>"><?= ($lang === 'ja') ? 'プレス' : 'Press' ?></a></li>
-          <li><a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/affiliates.php' : 'affiliates.php' ?>"><?= ($lang === 'ja') ? 'アフィリエイト' : 'Affiliates' ?></a></li>
+          <li><a href="<?= ($lang === 'ja') ? '/nuptial/lp/ja/about-us.php' : 'about-us.php' ?>"><?= ($lang === 'ja') ? '私たちについて' : 'About Us' ?></a></li>
+          <li><a href="<?= ($lang === 'ja') ? '/nuptial/lp/ja/contactus.php' : 'contactus.php' ?>"><?= ($lang === 'ja') ? 'お問い合わせ' : 'Contact Us' ?></a></li>
+          <li><a href="<?= ($lang === 'ja') ? '/nuptial/lp/ja/blog.php' : 'blog.php' ?>"><?= ($lang === 'ja') ? 'ブログ' : 'Blog' ?></a></li>
+          <li><a href="<?= ($lang === 'ja') ? '/nuptial/lp/ja/press.php' : 'press.php' ?>"><?= ($lang === 'ja') ? 'プレス' : 'Press' ?></a></li>
+          <li><a href="<?= ($lang === 'ja') ? '/nuptial/lp/ja/affiliates.php' : 'affiliates.php' ?>"><?= ($lang === 'ja') ? 'アフィリエイト' : 'Affiliates' ?></a></li>
       </ul>
     </section>
 
   
     <div class="language-selector" aria-label="Select Language">
-        <label for="language-select"><img src="/Nuptial/lp/img/nuptialagree_globe_white.png" alt="Select Language" /></label>
+        <label for="language-select"><img src="/nuptial/lp/img/nuptialagree_globe_white.png" alt="Select Language" /></label>
         <select id="language-select" onchange="changeLanguage(this.value);">
           <option value="en" <?= $lang === 'en' ? 'selected' : '' ?>>English</option>
           <option value="ja" <?= $lang === 'ja' ? 'selected' : '' ?>>日本語</option>
@@ -69,7 +69,7 @@ if (strpos($currentPath, '/ja/') !== false) {
 <script>
 function changeLanguage(selectedLang) {
     // 現在のウェブサイトのURLを取得（クエリパラメータを含まない）
-    var baseUrl = window.location.protocol + '//' + window.location.host + '/Nuptial/lp/';
+    var baseUrl = window.location.protocol + '//' + window.location.host + '/nuptial/lp/';
 
     // 新しい言語コードをURLに組み込む
     if (selectedLang === 'ja') {

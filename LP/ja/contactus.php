@@ -9,8 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Overlock:wght@900&family=Roboto:wght@500&family=Zen+Kaku+Gothic+New&family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
     <!-- https://example.com/contact -->
-    <link rel="alternate" hreflang="en" href="http://localhost/Nuptial/lp/contactus.php">
-    <link rel="alternate" hreflang="ja" href="http://localhost/Nuptial/lp/ja/contactus.php">
+    <link rel="alternate" hreflang="en" href="http://localhost/nuptial/lp/contactus.php">
+    <link rel="alternate" hreflang="ja" href="http://localhost/nuptial/lp/ja/contactus.php">
 
 </head>
 <style>

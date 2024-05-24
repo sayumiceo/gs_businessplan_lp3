@@ -10,8 +10,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Overlock:wght@900&family=Roboto:wght@500&family=Zen+Kaku+Gothic+New&family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
-    <link rel="alternate" hreflang="en" href="http://localhost/Nuptial/lp/blog.php">
-    <link rel="alternate" hreflang="ja" href="http://localhost/Nuptial/lp/ja/blog.php">
+    <link rel="alternate" hreflang="en" href="http://localhost/nuptial/lp/blog.php">
+    <link rel="alternate" hreflang="ja" href="http://localhost/nuptial/lp/ja/blog.php">
 
 </head>
 <body>
@@ -125,7 +125,7 @@ body {
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             echo '<div class="blog-box">';
             if (!empty($row['image_path'])) {
-                echo '<div class="blog-image"><img src="/Nuptial/cms/' . htmlspecialchars($row['image_path']) . '" alt="Blog Image"></div>';
+                echo '<div class="blog-image"><img src="/nuptial/cms/' . htmlspecialchars($row['image_path']) . '" alt="Blog Image"></div>';
             }        
             echo '<div class="blog-title">' . htmlspecialchars($row['title']) . '</div>';
             // echo '<div class="blog-subtitle">' . htmlspecialchars($row['subtitle']) . '</div>';

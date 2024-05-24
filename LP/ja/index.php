@@ -9,8 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Overlock:wght@900&family=Roboto:wght@500&family=Zen+Kaku+Gothic+New&family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
     <!-- https://example.com/contact -->
-    <link rel="alternate" hreflang="en" href="http://localhost/Nuptial/lp/index.php">
-    <link rel="alternate" hreflang="ja" href="http://localhost/Nuptial/lp/ja/index.php">
+    <link rel="alternate" hreflang="en" href="http://localhost/nuptial/lp/index.php">
+    <link rel="alternate" hreflang="ja" href="http://localhost/nuptial/lp/ja/index.php">
 
 
 </head>
@@ -32,7 +32,7 @@
 <div class="story-section">
   <div class="content-wrapper">
       <div class="story-image">
-          <img src="/Nuptial/lp/img/Bezos_samplephoto.webp" alt="Person holding a shoe">
+          <img src="/nuptial/lp/img/Bezos_samplephoto.webp" alt="Person holding a shoe">
       </div>
       <div class="story-details">
           <h2>Jeff Bezos trusts us.</h2>
@@ -45,17 +45,17 @@
 <!-- Features Section -->
 <div class="features-section">
     <div class="feature">
-      <img src="/Nuptial/lp/img/1.jpeg" alt="Feature 1">
+      <img src="/nuptial/lp/img/1.jpeg" alt="Feature 1">
       <h3>1. Create an account</h3>
       <p>Use your email address to sign up for NuptialAgree here.</p>
     </div>
     <div class="feature">
-      <img src="/Nuptial/lp/img/2.jpeg" alt="Feature 2">
+      <img src="/nuptial/lp/img/2.jpeg" alt="Feature 2">
       <h3>2. Get connected</h3>
       <p>Once you've created your NuptialAgree account, get connected with your partner here.</p>
     </div>
     <div class="feature">
-      <img src="/Nuptial/lp/img/4.jpeg" alt="Feature 3">
+      <img src="/nuptial/lp/img/4.jpeg" alt="Feature 3">
       <h3>3. Set up your conditions</h3>
       <p>Create your agreement to start collaborating and discuss with AI tools.</p>
     </div>
@@ -77,10 +77,10 @@
           <p>17 Departments</p>
         </div>
         <div class="opportunity image">
-          <img src="/Nuptial/lp/img/lawyer_sample02.jpeg" alt="Image description">
+          <img src="/nuptial/lp/img/lawyer_sample02.jpeg" alt="Image description">
         </div>
         <div class="opportunity image">
-          <img src="/Nuptial/lp/img/lawyer_sample.jpeg" alt="Image description">
+          <img src="/nuptial/lp/img/lawyer_sample.jpeg" alt="Image description">
         </div>
         <div class="opportunity">
           <h3>Open Positions</h3>
@@ -97,48 +97,48 @@
       <div class="blog-carousel">
         <!-- Blog Entry -->
         <div class="blog-entry">
-            <img src="/Nuptial/lp/img/blog01.jpeg" alt="Article Title">
+            <img src="/nuptial/lp/img/blog01.jpeg" alt="Article Title">
             <h3>Our experience.</h3>
             <p>April 1, 2024</p>
         </div>
 
         <div class="blog-entry">
-          <img src="/Nuptial/lp/img/blog02.jpeg" alt="Article Title">
+          <img src="/nuptial/lp/img/blog02.jpeg" alt="Article Title">
           <h3>Our story.</h3>
           <p>April 1, 2024</p>
         </div>
 
         <div class="blog-entry">
-          <img src="/Nuptial/lp/img/blog03.jpeg" alt="Article Title">
+          <img src="/nuptial/lp/img/blog03.jpeg" alt="Article Title">
           <h3>Our experience.</h3>
           <p>April 1, 2024</p>
         </div>
 
         <div class="blog-entry">
-          <img src="/Nuptial/lp/img/blog04.jpeg" alt="Article Title">
+          <img src="/nuptial/lp/img/blog04.jpeg" alt="Article Title">
           <h3>Our story.</h3>
           <p>April 1, 2024</p>
         </div>
         <div class="blog-entry">
-          <img src="/Nuptial/lp/img/blog01.jpeg" alt="Article Title">
+          <img src="/nuptial/lp/img/blog01.jpeg" alt="Article Title">
           <h3>Our experience.</h3>
           <p>April 1, 2024</p>
       </div>
 
       <div class="blog-entry">
-        <img src="/Nuptial/lp/img/blog02.jpeg" alt="Article Title">
+        <img src="/nuptial/lp/img/blog02.jpeg" alt="Article Title">
         <h3>Our story.</h3>
         <p>April 1, 2024</p>
       </div>
 
       <div class="blog-entry">
-        <img src="/Nuptial/lp/img/blog03.jpeg" alt="Article Title">
+        <img src="/nuptial/lp/img/blog03.jpeg" alt="Article Title">
         <h3>Our experience.</h3>
         <p>April 1, 2024</p>
       </div>
 
       <div class="blog-entry">
-        <img src="/Nuptial/lp/img/blog04.jpeg" alt="Article Title">
+        <img src="/nuptial/lp/img/blog04.jpeg" alt="Article Title">
         <h3>Our story.</h3>
         <p>April 1, 2024</p>
       </div>

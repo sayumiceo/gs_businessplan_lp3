@@ -13,8 +13,8 @@ if (strpos($currentPath, '/ja/') !== false) {
 <div id="header">
     <nav class="nav-bar">
         <div>
-            <a href="<?= ($lang === 'ja') ? '/Nuptial/lp/ja/index.php' : '/Nuptial/lp/index.php' ?>">
-                <img src="/Nuptial/lp/img/NuptialAgree_sample02.png" alt="Company Logo" />
+            <a href="<?= ($lang === 'ja') ? '/nuptial/lp/ja/index.php' : '/nuptial/lp/index.php' ?>">
+                <img src="/nuptial/lp/img/NuptialAgree_sample02.png" alt="Company Logo" />
         </a>
             </a>
         </div>
